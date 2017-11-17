@@ -44,5 +44,17 @@ mavenNode(mavenImage: 'openjdk:8') {
                 itestPattern = localItestPattern
             }
         }
+
+        stage('Maven Release') {
+             releaseProject{
+                  stagedProject = project
+                  useGitTagForNextVersion = false
+                  helmPush = false
+                  groupId = 'com.stakater.kubernetes'
+                  githubOrganisation = 'stakater'
+                  artifactIdToWatchInCentral = 'assertions'
+                  artifactExtensionToWatchInCentral = 'jar'
+             }
+        }
     }
 }
