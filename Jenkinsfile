@@ -47,7 +47,7 @@ mavenNode(mavenImage: 'openjdk:8') {
 
         stage('Maven Release') {
              releaseProject{
-                  stagedProject = project
+                  stagedProject = ["abc", canaryVersion]
                   useGitTagForNextVersion = false
                   helmPush = false
                   groupId = 'com.stakater.kubernetes'
