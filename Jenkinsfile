@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-@Library('github.com/stakater/fabric8-pipeline-library@ehancement-configure-release')
+@Library('github.com/stakater/fabric8-pipeline-library@enhancement-configure-release')
 
 def localItestPattern = ""
 try {
