@@ -44,22 +44,6 @@ mavenNode(mavenImage: 'openjdk:8') {
                 itestPattern = localItestPattern
             }
         }
-
-#        stageProject {
-#            project = 'stakater/kubernetesAssertions'
-#            useGitTagForNextVersion = false
-#        }
-#
-#        releaseProject {
-#            stagedProject = project
-#            useGitTagForNextVersion = true
-#            helmPush = false
-#            groupId = 'com.stakater'
-#            githubOrganisation = 'stakater'
-#            artifactIdToWatchInCentral = 'kubernetes-assertions'
-#            artifactExtensionToWatchInCentral = 'jar'
-#        }
-
     }
 }
 
