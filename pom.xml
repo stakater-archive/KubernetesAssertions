@@ -4,9 +4,38 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Kubernetes Assertions Library</name>
+    <description>A port of Kubernetes Assertions Library by Fabric8</description>
+    <url>https://github.com/stakater/KubernetesAssertions</url>
+
+    <scm>
+        <url>https://github.com/stakater/KubernetesAssertions.git</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Waseem</name>
+            <email>waseemhassan@aurorasolutions.io</email>
+            <organization>Stakater</organization>
+            <organizationUrl>https://www.stakater.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>Asim</name>
+            <email>asim@aurorasolutions.io</email>
+            <organization>Stakater</organization>
+            <organizationUrl>https://www.stakater.com</organizationUrl>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <groupId>com.stakater.kubernetes</groupId>
     <artifactId>assertions</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>

@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-@Library('github.com/stakater/fabric8-pipeline-library@master')
+@Library('github.com/stakater/fabric8-pipeline-library@ehancement/configure-release')
 
 def localItestPattern = ""
 try {
@@ -44,5 +44,49 @@ mavenNode(mavenImage: 'openjdk:8') {
                 itestPattern = localItestPattern
             }
         }
+
+#        stageProject {
+#            project = 'stakater/kubernetesAssertions'
+#            useGitTagForNextVersion = false
+#        }
+#
+#        releaseProject {
+#            stagedProject = project
+#            useGitTagForNextVersion = true
+#            helmPush = false
+#            groupId = 'com.stakater'
+#            githubOrganisation = 'stakater'
+#            artifactIdToWatchInCentral = 'kubernetes-assertions'
+#            artifactExtensionToWatchInCentral = 'jar'
+#        }
+
     }
+}
+
+releaseNode {
+  try {
+
+    stage('Checkout') {
+      checkout scm
+    }
+
+    def pipeline = load 'release.groovy'
+    def stagedProject
+
+    stage('Stage') {
+      stagedProject = pipeline.stage()
+    }
+
+    stage('Promote') {
+      pipeline.release(stagedProject)
+    }
+
+    stage('Promote YAMLs') {
+      pipeline.promoteYamls(stagedProject[1])
+    }
+
+  } catch (err) {
+    hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"
+    error "${err}"
+  }
 }
