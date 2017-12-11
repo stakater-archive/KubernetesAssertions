@@ -50,6 +50,9 @@ mavenNode(mavenImage: 'openjdk:8') {
 releaseNode {
   try {
 
+    sh "git remote set-url origin git@github.com:stakater/fabric8-pipeline-library.git"
+    sh "git checkout -b enhancement-configure-release origin/enhancement-configure-release"
+
     def pipeline = load 'release.groovy'
     def stagedProject
 
