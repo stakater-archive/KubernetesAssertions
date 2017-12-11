@@ -70,7 +70,6 @@ releaseNode {
     }
 
   } catch (err) {
-    hubot room: 'release', message: "${env.JOB_NAME} failed: ${err}"
     error "${err}"
   }
 }
