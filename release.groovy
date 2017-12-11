@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 def stage(){
   return stageProject2{
-    project = 'fabric8io/fabric8-platform'
+    project = 'stakater/KubernetesAssertions'
     useGitTagForNextVersion = true
   }
 }
