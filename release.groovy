@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 def stage(){
-  return stageProject{
+  return stageProject2{
     project = 'fabric8io/fabric8-platform'
     useGitTagForNextVersion = true
   }
