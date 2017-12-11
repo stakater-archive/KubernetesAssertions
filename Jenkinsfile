@@ -50,10 +50,6 @@ mavenNode(mavenImage: 'openjdk:8') {
 releaseNode {
   try {
 
-    stage('Checkout') {
-      checkout scm
-    }
-
     def pipeline = load 'release.groovy'
     def stagedProject
 
