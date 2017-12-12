@@ -47,7 +47,7 @@ mavenNode(mavenImage: 'openjdk:8') {
     }
 }
 
-releaseNode {
+releaseNode(clientsImage: 'stakater/builder-clients') {
   try {
 
     stage('Checkout') {
